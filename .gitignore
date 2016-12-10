@@ -8,5 +8,4 @@
 /spec/reports/
 /tmp/
 .idea
-*.gem
 /.byebug_history

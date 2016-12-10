@@ -23,7 +23,13 @@ Or install it yourself as:
 Before making any calls to RapidAPI blocks you must configure your credentials:
 _(Find these on [dashboard.rapidapi.com/projects](https://dashboard.rapidapi.com/projects))_
 
+This can be set once in an app initializer and will be available throughout.
+
 ```ruby
+# project_root/config/initializers/rapid_api_config.rb (For a Rails project)
+
+require 'rapid_api'
+
 RapidAPI.config(
   project: 'your-project-name',
   api_key: 'XXXXXXX-your-project-apikey-XXXXXXXXXX'
