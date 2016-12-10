@@ -1,8 +1,6 @@
-# RapidapiConnect
+# RapidAPI Connect - Ruby Gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rapidapi_connect`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem allows you to connect to RapidAPI blocks from any your Ruby app.
 
 ## Installation
 
@@ -20,9 +18,41 @@ Or install it yourself as:
 
     $ gem install rapidapi_connect
 
+## Configuration
+
+Before making any calls to RapidAPI blocks you must configure your credentials:
+_(Find these on [dashboard.rapidapi.com/projects](https://dashboard.rapidapi.com/projects))_
+
+```ruby
+RapidAPI.config(
+  project: 'your-project-name',
+  api_key: 'XXXXXXX-your-project-apikey-XXXXXXXXXX'
+)
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Call any API from the [RapidAPI Marketplace](https://rapidapi.com/)
+
+```ruby
+# Get Top Stories from HackerNews
+
+top_stories = RapidAPI.call('HackerNews', 'getTopStories')
+
+# Get a specific item from HackerNews
+
+RapidAPI.call('HackerNews', 'getItem', { 'itemId': '13126633'})
+# => {
+#      "executionTime"=>"2016-12-10T04:33:18.299Z", "project"=>"my-project", "block"=>"getItem",
+#      "package"=>"HackerNews", "outcome"=>"success", 
+#      "payload"=>{
+#                   "by"=>"hollaur", "descendants"=>0, "id"=>13126633, "score"=>4, "time"=>1481147798,
+#                   "title"=>"Design a Better Website: Foundation First", "type"=>"story",
+#                   "url"=>"https://medium.com/@Toptal/design-a-better-website-foundation-first-541de01daaf2#.cxzvjr6wm"
+#                 }
+#    }
+
+```
 
 ## Development
 
@@ -32,7 +62,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rapidapi_connect. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/choncou/RapidAPIConnect_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

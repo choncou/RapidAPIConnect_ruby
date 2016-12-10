@@ -1,3 +1,3 @@
-module RapidapiConnect
+module RapidAPI
   VERSION = '0.1.0'
 end
